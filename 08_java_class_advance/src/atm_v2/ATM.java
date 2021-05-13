@@ -22,9 +22,9 @@ public class ATM {
 			System.out.print("메뉴 선택 : ");
 			int sel = scan.nextInt();
 			
-			if		(sel == 1)  join();
-			else if (sel == 2)  login();  
-			else if (sel == 0)  break;
+			if		(sel == 1)  join(); // 1번을 눌렀을경우 회원가입
+			else if (sel == 2)  login();   // 2번을 눌렀을경우 로그인
+			else if (sel == 0)  break; 	// 3번을 눌렀을 경우 종료 . 
 			
 		}
 		
@@ -33,23 +33,23 @@ public class ATM {
 	
 	void login() {
 		
-		identifier = um.logUser();
-		if (identifier != -1) loginMenu();
+		identifier = um.logUser(); //identifier를 logUser객체 생성
+		if (identifier != -1) loginMenu(); //만약 identifier의 초기식인 -1과 같지 않을때
+										   // loginMenu객체 ??
 		else 				  System.out.println("[메세지]아이디와 패스워드를 확인해주세요.");
-
 	}
 	
 	
-	void loginMenu() {
+	void loginMenu() { 
 		
 		while (true) {
 			
-			System.out.println("[" + um.userList[identifier].id + "님, 환영합니다.]");
+			System.out.println("[" + um.userList[identifier].id + "님, 환영합니다.]");// userList배열의 identifier번째의 id
 			System.out.println("[1.계좌생성]\n[2.계좌삭제]\n[3.조    회]\n[4.회원탈퇴]\n[0.로그아웃]");
 			System.out.println("메뉴 선택 : ");
 			int selectMenu = scan.nextInt();
 			
-			if (selectMenu == 1) {
+			if (selectMenu == 1) { // 계좌 생성
 				AccountManager.getInstance().createAcc(identifier);
 				FileManager.getInstance().save();
 				

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class UserManager {
 	
 	private UserManager() {}
-	static private UserManager instance = new UserManager();
+	static private UserManager instance = new UserManager(); //UserManager객체 생성
 	static public UserManager getInstance() {
 		return instance;
 	}
